@@ -27,9 +27,9 @@ function App() {
         <Navbar />
         <Hero />
         <Services />
-        {/* Impressive Feature: Interactive Protocol Database (Controlled Scenarios) */}
+        {/* Security Protocols (Interactive UI) */}
         <SecurityProtocols />
-        {/* Impressive Feature: Visual Dashboard Simulation */}
+        {/* Dashboard Simulation (Visual UI) */}
         <DashboardPreview />
         <Contact />
         <Footer />
