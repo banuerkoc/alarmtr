@@ -31,8 +31,11 @@
               'float': 'float 6s ease-in-out infinite',
               'scan': 'scan 4s linear infinite',
               'glow': 'glow 2s ease-in-out infinite alternate',
-              'spin-slow': 'spin 10s linear infinite',
+              'spin-slow': 'spin 15s linear infinite',
               'blob': 'blob 10s infinite',
+              'text-shimmer': 'textShimmer 3s ease-out infinite alternate',
+              'grid-flow': 'gridFlow 20s linear infinite',
+              'radar-spin': 'spin 4s linear infinite',
             },
             keyframes: {
               fadeInUp: {
@@ -56,6 +59,14 @@
                 '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                 '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                 '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              textShimmer: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '100% 50%' },
+              },
+              gridFlow: {
+                '0%': { transform: 'translateY(0)' },
+                '100%': { transform: 'translateY(40px)' },
               }
             }
           },
@@ -73,35 +84,57 @@
         overflow-x: hidden;
       }
       
-      /* Premium Glassmorphism */
+      /* Premium Glassmorphism Enhanced */
       .glass-panel {
         background: rgba(10, 10, 10, 0.6);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
       }
 
       .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.4s ease;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      /* Inner Glow Effect on Hover */
+      .glass-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(800px circle at var(--mouse-x, center) var(--mouse-y, center), rgba(41, 151, 255, 0.1), transparent 40%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .glass-card:hover::after {
+        opacity: 1;
       }
 
       .glass-card:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(41, 151, 255, 0.3);
-        box-shadow: 0 0 30px rgba(41, 151, 255, 0.15);
-        transform: translateY(-5px);
+        border-color: rgba(41, 151, 255, 0.4);
+        box-shadow: 0 0 50px rgba(41, 151, 255, 0.15), inset 0 0 20px rgba(41, 151, 255, 0.05);
+        transform: translateY(-5px) scale(1.01);
       }
 
       /* Animated Grid Background */
       .bg-grid-animate {
-        background-size: 40px 40px;
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        mask-image: radial-gradient(circle at center, black 40%, transparent 100%); 
+        background-size: 50px 50px;
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); 
       }
 
       /* Scanline Effect */
@@ -119,6 +152,12 @@
       @keyframes scanline {
         0% { top: -100px; }
         100% { top: 100%; }
+      }
+      
+      /* Text Gradient Animation */
+      .text-gradient-animate {
+        background-size: 200% auto;
+        animation: textShimmer 4s linear infinite alternate;
       }
       
       /* Animation Delays */

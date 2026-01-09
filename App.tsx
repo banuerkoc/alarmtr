@@ -11,16 +11,19 @@ function App() {
   return (
     <div className="min-h-screen bg-deep-space text-white selection:bg-neon-blue selection:text-black relative">
       
-      {/* Ambient Background Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* Ambient Background Elements - Global */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-black">
+         {/* Moving Cyber Grid */}
+         <div className="absolute inset-0 bg-grid-animate opacity-40 animate-grid-flow transform scale-150"></div>
+        
         {/* Blue Blob - Top Left */}
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-neon-blue/20 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-neon-blue/20 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"></div>
         
         {/* Purple Blob - Top Right/Middle */}
-        <div className="absolute top-[30%] right-[-10%] w-[400px] h-[400px] bg-purple-500/20 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] bg-purple-500/15 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob animation-delay-2000"></div>
         
         {/* Dark Blue/Teal Blob - Bottom Left */}
-        <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-blue-900/20 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[700px] h-[700px] bg-blue-900/20 rounded-full mix-blend-screen filter blur-[120px] opacity-25 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10">
