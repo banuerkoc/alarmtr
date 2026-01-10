@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, PlayCircle, ShieldCheck } from 'lucide-react';
+import { PlayCircle, ShieldCheck } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
         </h1>
         
         <p className="mt-6 max-w-3xl mx-auto text-xl md:text-2xl text-zinc-300 font-light leading-relaxed animate-fade-in-up drop-shadow-lg" style={{ animationDelay: '0.3s' }}>
-           Pazarın "modası geçmiş" radar çözümleriyle değil, <strong className="text-white font-medium border-b border-neon-blue/50 pb-0.5">5 Parmak Modeli</strong> ve <strong className="text-white font-medium border-b border-neon-blue/50 pb-0.5">Yasal İzleme Merkezi</strong> güvencesiyle riskleri sıfıra indirin.
+           Geleneksel güvenlik anlayışının ötesine geçin; <strong className="text-white font-medium border-b border-neon-blue/50 pb-0.5">5 Parmak Modeli</strong> ve <strong className="text-white font-medium border-b border-neon-blue/50 pb-0.5">Yasal İzleme Merkezi</strong> güvencesiyle riskleri sıfıra indirin.
         </p>
 
         <div className="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -78,15 +78,6 @@ export const Hero: React.FC = () => {
           </a>
         </div>
       </div>
-
-      <a 
-        href="#5-parmak-modeli" 
-        onClick={(e) => handleScrollTo(e, '5-parmak-modeli')}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-zinc-400 z-20 cursor-pointer hover:text-white transition-colors flex flex-col items-center group opacity-70 hover:opacity-100"
-      >
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase mb-2 block text-center text-neon-blue drop-shadow-[0_0_10px_rgba(41,151,255,0.8)]">Sistemi Keşfet</span>
-        <ChevronDown size={24} className="mx-auto group-hover:scale-110 transition-transform text-white" />
-      </a>
     </div>
   );
 };
